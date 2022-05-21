@@ -1,0 +1,22 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Главная страница
+{% endblock %}
+
+
+{% block content %}
+<h1>Кондиционеры в наличии </h1>
+{% for el in naimenovanie %}
+<div class="alert alert-warning mt-2">
+    <h3>{{ el.naimenovanie}}</h3>
+    <p>{{el.price}}</p>
+
+<a type="button" href="{% url 'addToCart'%}?product_id={{el.seriyni_nomer}}" class="btn btn-success"> <i class="fa-solid fa-cart-shopping"></i> Добавить в корзину</a>
+    
+</div>
+
+{% endfor %}
+
+{% endblock %}
+

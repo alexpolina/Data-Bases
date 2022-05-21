@@ -1,0 +1,55 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Оформление заказа
+{% endblock %}
+
+
+{% block content %}
+<br>
+    <h3>Ваша корзина:</h3>
+{% for product in products %}
+
+    <br>
+<hr>
+    <div>
+        <div class="row">
+            <div class="col-md-9">
+                <h4> {{product.naimenovanie}} </h4>
+            </div>
+            <div class="col-md-3" style="text-align: right;">
+                <h5> {{product.price}} </h5>
+            </div>
+        </div>
+
+    </div>
+{% endfor %}
+
+<br>
+<form action="{% url 'loginUser' %}" method="post" style="margin: auto;">
+
+    {% csrf_token %}
+    <label>Адрес доставки:</label>
+
+    <input class="form-control" type="text" name="username"><br>
+
+
+    <label>Способ оплаты:</label><br>
+    <div style="font-size: 25px;">
+        
+    <label>
+    <input type="radio" name="payment_method" value="VISA, MIR ....">
+    VISA, MIR ....
+    </label>
+    <label>
+    <input type="radio" name="payment_method" value="Наличные"> Наличные
+    </label>
+    <label>
+    <input type="radio" name="payment_method" value="Перечисление"> Перечисление
+    </label>
+    </div>
+    <input class="btn btn-primary" type="submit" value="Оформить"><br>
+</form>
+
+{% endblock %}
+

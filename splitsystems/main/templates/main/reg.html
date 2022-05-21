@@ -1,0 +1,37 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Регистрация
+{% endblock %}
+
+
+{% block content %}
+
+<form action="{% url 'regNewUser' %}" method="post" style="text-align: center;">
+
+	{% csrf_token %}
+	<label>User Name:</label>
+
+	<input type="text" name="username"><br><br>
+
+	<label>First name:</label>
+
+	<input type="text" name="fName"><br><br>
+
+	<label>Last name:</label>
+
+	<input type="text" name="lName"><br><br>
+
+	<label>eMail:</label>
+
+	<input type="text" name="email"><br><br>
+
+	<label>Password:</label>
+
+	<input type="password" name="password"><br><br>
+
+
+	<input type="submit" value="login"><br>
+</form>
+
+{% endblock %}
